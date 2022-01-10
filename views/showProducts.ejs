@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<style>
+    div {
+      background-color: lightgrey;
+      width: 300px;
+      border: 15px  ;
+      padding: 50px;
+      margin: 20px;
+    }
+    table, th, td {
+  border: 1px solid black;
+}
+    </style>
+</head>
+<body>
+
+<form action="/getProductList" method="post" name="form1">
+<div class="form-group">
+    <label for="exampleInputEmail1"><center><b>Product Details</b></center></label><a href="/adminLogin" class="btn btn-success ml-2"></a></br>
+    <%if(productD.length>0){%>
+        <table>
+           
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Added on</th>
+                <th>Action</th>
+              </tr>
+            <% for(var i=0; i < productD.length; i++) { %>
+                <tr>
+                    <td><%= productD[i].id %></td>
+                    <td><%= productD[i].productName %></td>
+                    <td><%= productD[i].description %></td>
+                    <td><%= productD[i].created %></td>
+                    <td> <a href="/adminLogin" class="btn btn-success ml-2">View</a></br></td>
+                  </tr>
+                <%}%>
+        </table>
+    <%}%>
+          
+</div>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<style>
+    div {
+      background-color: lightgrey;
+      width: 500px;
+      border: 15px  ;
+      padding: 50px;
+      margin: 20px;
+    }
+    table, th, td {
+  border: 1px solid black;
+}
+    </style>
+</head>
+<body>
+
+<form action="/getProductList" method="post" name="form1">
+<div class="form-group">
+    <label for="exampleInputEmail1"><center><b>User Details</b></center></label><a href='/adminHomePage'>Back To Home</a></br></br>
+    <%if(userD.length>0){%>
+        <table>
+           
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>User Name</th>
+                <th>Action</th>
+
+              </tr>
+            <% for(var i=0; i < userD.length; i++) { %>
+                <tr>
+                    <td><%= userD[i].firstname %></td>
+                    <td><%= userD[i].lastname %></td>
+                    <td><%= userD[i].userName %></td>
+                   
+                    <td> <a href="/updateUser?id=<%= userD[i].id %>">Delete</a>
+                      <a href="/updateUser?id=<%= userD[i].id %>&key=update">Update</a>
+                    </td>
+
+                  </tr>
+                <%}%>
+        </table>
+    <%}%>
+          
+</div>
+
+</form>
+</body>
+</html>

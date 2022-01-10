@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<style>
+    div {
+      background-color: lightgrey;
+      width: 300px;
+      border: 15px  ;
+      padding: 50px;
+      margin: 20px;
+    }
+    </style>
+</head>
+<body>
+
+<form action="/addProduct" method="post" name="form1">
+<div class="form-group">
+    <label for="exampleInputEmail1"><center><b>Add Product</b></center></label><a href='/userDashboard'>Back To Home</a></br></br>
+
+<label for="exampleInputEmail1">Product Name</label></br>
+
+<input type="text" name="pname" class="form-control" id="pname" aria-describedby="emailHelp"  value="">
+</br>
+<label for="exampleInputEmail1">Description</label></br>
+<textarea id="description" class="form-control" name="description" rows="4" cols="30"></textarea>
+
+<!-- <input type="text" name="description" class="form-control" id="description" aria-describedby="emailHelp"  value=""> -->
+</br> 
+</br>
+<input type="submit" class="btn btn-primary" value="Add Product">
+
+</div>
+
+</form>
+</body>
+</html>

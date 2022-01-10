@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<style>
+    div {
+      background-color: lightgrey;
+      width: 600px;
+      border: 15px  ;
+      padding: 50px;
+      margin: 20px;
+    }
+    table, th, td {
+  border: 1px solid black;
+}
+    </style>
+</head>
+<body>
+
+     <%if(key=='delete'){%>
+
+        <form action="/deleteProduct" method="post" name="form1">
+
+            <div class="form-group">
+                <label for="exampleInputEmail1"><center><b>Product Details</b></center></label><a href='/adminHomePage'>Back To Home</a></br></br>
+
+                 
+                <% if(details.length>0){%>
+            Product ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type="text" id="id" name="id" value="<%= details[0].id %>" readonly="readonly"></br></br>
+            Product Name :&nbsp;<input type="text" id="firstname" name="firstname" value="<%= details[0].productName %>"readonly="readonly" ></br></br>
+            Description &nbsp;&nbsp;&nbsp;&nbsp;: <textarea id="description" class="form-control" name="description" rows="4" cols="30" readonly="readonly"><%= details[0].description %></textarea>
+            </br></br>
+            Added By &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<input type="text" id="userName" name="userName" value="<%= details[0].addedBy %>" readonly="readonly"></br>
+           <br><br>
+       
+               <%}%>
+            </br>
+        <input type="submit" class="btn btn-primary" value="Delete Product"></br>
+    </form>
+        <%}else if(key=='update'){%>
+            <form action="/updateProduct" method="post" name="form1">
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1" style="font-size: 20px;"><center><b><u>Product Details</u></b></center></label><a href='/adminHomePage'>Back To Home</a></br></br></br>
+
+                     
+                    <% if(details.length>0){%>
+                Product ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type="text" id="id" name="id" value="<%= details[0].id %>" ></br></br>
+                Product Name :&nbsp;<input type="text" id="productName" name="productName" value="<%= details[0].productName %>" ></br></br>
+                Description &nbsp;&nbsp;&nbsp;&nbsp;: <textarea id="description" class="form-control" name="description" rows="4" cols="30" ><%= details[0].description %></textarea>
+                </br></br>
+                Added By &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<input type="text" id="userName" name="userName" value="<%= details[0].addedBy %>" ></br>
+               <br><br>
+           
+                   <%}%>
+                </br>
+            <input type="submit" class="btn btn-primary" value="Update Product">
+        </form>
+            <%}else{%>
+            <form action="/reviewProduct" method="post" name="form1">
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1" style="font-size: 20px;"><center><b><u>Product Details</u></b></center></label><a href='/adminHomePage'>Back To Home</a></br></br></br>
+
+                     
+                    <% if(details.length>0){%>
+                Product ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type="text" id="id" name="id" value="<%= details[0].id %>" readonly="readonly"></br></br>
+                Product Name :&nbsp;<input type="text" id="firstname" name="firstname" value="<%= details[0].productName %>"readonly="readonly" ></br></br>
+                Description &nbsp;&nbsp;&nbsp;&nbsp;: <textarea id="description" class="form-control" name="description" rows="4" cols="30" readonly="readonly"><%= details[0].description %></textarea>
+                </br></br>
+                Added By &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<input type="text" id="userName" name="userName" value="<%= details[0].addedBy %>" readonly="readonly"></br>
+               <br><br>
+           
+                   <%}%>
+                </br>
+            <input type="submit" class="btn btn-primary" value="View Product On Website">
+        </form>
+        <%}%>
+           
+     
+</div>
+
+</body>
+</html>

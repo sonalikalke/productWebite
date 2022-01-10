@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<style>
+    div {
+      background-color: lightgrey;
+      width: 650px;
+      border: 15px  ;
+      padding: 50px;
+      margin: 20px;
+    }
+    table, th, td {
+  border: 1px solid black;
+  
+}
+    </style>
+</head>
+<body>
+
+<form action="/getProductList" method="post" name="form1">
+<div class="form-group">
+    <label for="exampleInputEmail1" style="font-size: 20px;"><center><b><u>Product Details</u></b></center></label><a href='/adminHomePage'>Back To Home</a></br></br>
+    <p style="color: crimson; font-weight: bold;"> Note : If status is Reviewed that means it is reviewed by admin and will display on wesite so please do not click on the links below action column,application may behave abnormally because all the conditions are not handled by considering time.</p>
+    <%if(productD.length>0){%>
+        <table>
+           
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            
+                <th>Added on</th>
+              
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            <% for(var i=0; i < productD.length; i++) { %>
+                <tr>
+                    <td><%= productD[i].id %></td>
+                    <td><%= productD[i].productName %></td>
+                
+                    <td><%= productD[i].created %></td>
+                   
+                    <td ><%= productD[i].adminStatus %></td>
+                    <td> <a href="/productDetails?id=<%= productD[i].id %>" class="btn btn-success ml-2">Review</a>
+                     <a href="/productDetails?id=<%= productD[i].id %>&key=delete" class="btn btn-success ml-2">Delete</a></br>
+                     <a href="/productDetails?id=<%= productD[i].id %>&key=update" class="btn btn-success ml-2">Update</a></td>
+                  </tr>
+                <%}%>
+        </table>
+    <%}%>
+          
+</div>
+
+</form>
+</body>
+</html>
